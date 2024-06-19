@@ -29,6 +29,7 @@ class WeatherDataService {
   }
 
   static Future<Weathers> getWeather(double lat, double lon) async {
+    initialize();
     Uri url = Uri.parse("${baseUrl}lat=$lat&lon=$lon&appid=$_apiKey");
     http.Response res = await http.get(url);
     String resultStr = res.body;
